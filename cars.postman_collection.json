@@ -1,0 +1,679 @@
+{
+	"info": {
+		"_postman_id": "22e9386b-9db7-4213-8608-bf0d4459c01e",
+		"name": "cars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29411635"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"spider\",\r\n    \"email\":\"ezmodeus@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/register",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ezmodeus@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/auth/login",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Services Center",
+			"item": [
+				{
+					"name": "service-centers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Service Center 2\",\r\n  \"lat\": 40.033333,\r\n  \"long\": 41.233333,\r\n  \"services\": [\"Oil Change\", \"Tire Replacement\"],\r\n  \"contact\": \"123-456-7890\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/service-centers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"service-centers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "service-centers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/service-centers",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"service-centers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "service-centers/nearby",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "long",
+								"value": "31.233333",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "lat",
+								"value": "30.033333",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5001/api/service-centers/nearby?lat=30.033333&long=31.233333",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"service-centers",
+								"nearby"
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "30.033333"
+								},
+								{
+									"key": "long",
+									"value": "31.233333"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fuel stations",
+			"item": [
+				{
+					"name": "fuel-stations",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"fuel-stations 2\",\r\n  \"lat\": 40.0444,\r\n  \"long\": 41.2357,\r\n  \"services\": [\"Oil Change\", \"Brake Check\"],\r\n  \"contact\": \"123-456-789\",\r\n  \"rating\":4\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/fuel-stations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"fuel-stations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "fuel-stations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5001/api/fuel-stations",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"fuel-stations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "bookings",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"67519c0d639f7955a5f4df1a\",\r\n  \"serviceCenterId\": \"64abc123456789abcdef5678\",\r\n  \"service\": \"Oil Change\",\r\n  \"date\": \"2024-12-10T10:00:00.000Z\",\r\n  \"comments\": \"Please ensure timely service.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/bookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/bookings",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"bookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookingByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/bookings/6752127f5f14f0032547a192",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"bookings",
+								"6752127f5f14f0032547a192"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookings/status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingId\":\"6752127f5f14f0032547a192\",\r\n    \"status\":\"completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/bookings/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"bookings",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"item": [
+				{
+					"name": "payments/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookingId\": \"6752127f5f14f0032547a192\",\r\n  \"amount\": 700,\r\n  \"currency\": \"usd\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/payments/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"payments",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "payments/status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"paymentIntentId\": \"pi_3QSm3LKRCO9G2OcU12tpQ6D6\"\r\n      \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5001/api/payments/status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"payments",
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "products",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n  {\r\n    \"name\": \"Engine Oil\",\r\n    \"description\": \"High-quality synthetic engine oil for cars.\",\r\n    \"price\": 50.0,\r\n    \"images\": [\r\n      \"https://example.com/images/engine-oil-1.jpg\",\r\n      \"https://example.com/images/engine-oil-2.jpg\"\r\n    ],\r\n    \"category\": \"Automotive Fluids\",\r\n    \"serviceCenterId\": \"6751a6c696d2ddd681613aa5\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/products",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/products/6755d23cab2607d379d823c4",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"6755d23cab2607d379d823c4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/products",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "review",
+			"item": [
+				{
+					"name": "Reviews Service-center By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/reviews/service-center/6751a6c696d2ddd681613aa5",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"service-center",
+								"6751a6c696d2ddd681613aa5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reviews",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"user\": \"67519c0d639f7955a5f4df1a\",\r\n    \"serviceCenterId\": \"6751a6c696d2ddd681613aa5\",\r\n    \"rating\": 4,\r\n    \"reviewText\": \"Great service and friendly staff. Would definitely recommend!\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/reviews",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reviews By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/reviews/6755d3b5af90b09bf910382f",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"reviews",
+								"6755d3b5af90b09bf910382f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "  {\r\n    \"user\": \"67519c0d639f7955a5f4df1a\",\r\n    \"products\": [\r\n      {\r\n        \"productId\": \"6755d23cab2607d379d823c4\",\r\n        \"quantity\": 2,\r\n        \"price\": 100.0\r\n      }\r\n    ],\r\n    \"totalAmount\": 100.0,\r\n    \"paymentStatus\": \"pending\",\r\n    \"orderStatus\": \"shipped\",\r\n    \"deliveryAddress\": \"123 Elm Street, New York, NY\",\r\n    \"deliveryDate\": \"2024-12-15T00:00:00.000Z\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/orders",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders By id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/orders/6755d74abbb2289c7052de41",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"6755d74abbb2289c7052de41"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/orders/user/67519c0d639f7955a5f4df1a",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"user",
+								"67519c0d639f7955a5f4df1a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notification",
+			"item": [
+				{
+					"name": "notifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user\": \"67519c0d639f7955a5f4df1a\",\r\n  \"type\": \"booking\",\r\n  \"message\": \"Your booking is confirmed.\",\r\n  \"email\":\"shafrax500@gmail.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/notifications",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notifications By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}/api/notifications/67519c0d639f7955a5f4df1a",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"notifications",
+								"67519c0d639f7955a5f4df1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "notifications",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"read\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseUrl}}/api/notifications/6755db7807d307770097c4c8",
+							"host": [
+								"{{BaseUrl}}"
+							],
+							"path": [
+								"api",
+								"notifications",
+								"6755db7807d307770097c4c8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
